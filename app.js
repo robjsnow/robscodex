@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const postRoutes = require('./routes/posts'); 
 
 dotenv.config();
 
@@ -24,9 +25,7 @@ db.once('open', () => {
 
 
 // Routes
-app.get('/', (req, res) => {
-  res.render('index');
-});
+app.use('/', postRoutes);
 
 // Start server
 const PORT = process.env.PORT || 3000;
