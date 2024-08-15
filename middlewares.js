@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 
 function setupGlobalMiddleware(app) {
+  
   // Parse JSON data
   app.use(bodyParser.json());
 
@@ -19,8 +20,4 @@ function setupGlobalMiddleware(app) {
   app.set('view engine', 'ejs');
 }
 
-function setupRouteSpecificMiddleware(app) {
-  // Route-specific middleware to be set here
-}
-
-module.exports = { setupGlobalMiddleware, setupRouteSpecificMiddleware };
+module.exports = { setupGlobalMiddleware };
