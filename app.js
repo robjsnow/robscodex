@@ -2,15 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const postRoutes = require('./routes/posts'); 
+const { setupGlobalMiddleware } = require('./middlewares');
 
 dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
-app.set('view engine', 'ejs');
+// Apply global middleware
+setupGlobalMiddleware(app);
 
 mongoose.connect(process.env.MONGODB_URI, {});
 

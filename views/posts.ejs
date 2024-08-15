@@ -10,7 +10,7 @@
     <ul>
         <% posts.forEach(post => { %>
             <li>
-                <h2><%= post.title %></h2>
+                <h2><%= post.title %> - <%= post.id %></h2>
                 <p><%= post.content %></p>
                 <small>By <%= post.author %> on <%= post.date.toDateString() %></small>
             </li>
