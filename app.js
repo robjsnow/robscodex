@@ -12,9 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-
-
-
 mongoose.connect(process.env.MONGODB_URI, {});
 
 const db = mongoose.connection;
@@ -23,12 +20,7 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-
 // Routes
 app.use('/', postRoutes);
 
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+module.exports = app; // Export app without starting the server
